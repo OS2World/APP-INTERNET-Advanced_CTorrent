@@ -1,0 +1,104 @@
+ACT is OS/2 port of Enhanced CTorrent (BitTorrent console client, dnh3.3.2
+currently) with some additions and exclusions.
+
+Latest versions/bugfixes/etc are available at http://os2acw.googlepages.com
+
+
+Note, use -file <file_list> option simultaneously with -c to avoid unwanted
+files creation while checking existance. This is not needed if you don't use
+selective download.
+
+
+	v 0.2.7 t0
+
+-utf option added. Use it if file creation failed becouse of incorrect symbols
+   in a name converted to locale.
+
+	v 0.2.6
+
+Enhanced CTorrent dnh3.3.2 port.
+-ind, -rate, -pdown and -time options fixed to operate with any style
+   (status line format).
+
+	v 0.2.5
+
+Bugfix (by nickk) 0.2.3 & 0.2.4. Incorrect reopen files when download complete.
+
+	v 0.2.4
+
+Bugfix 0.2.3. "trash" reported to tracker instead of download value.
+
+	v 0.2.3
+
+-cfg option and configuration file added. Note that configuration file is parsed
+   before command-line (command-line arguments override config defaults).
+   If -cfg option not used then 'act.cfg' searched in:
+   - current (working) directory;
+   - the directory where ACT resides;
+   - %HOME% directory;
+   - %ETC% directory.
+
+by nickk:
+
+When download complete act will close all files within torrent and reopen them
+with read-only, deny-write mode for seeding. This allows other programs, such as
+ftpserver, to open completed files with read-only, deny-write mode.
+
+	v 0.2.2
+
+Conversion locale <-> utf-8 bugfix (again).
+
+	v 0.2.1
+
+Conversion locale <-> utf-8 bugfix.
+-T option disabled as unuseful.
+
+	v 0.2.0
+
+Enhanced CTorrent dnh3.3.1 port.
+-com option added as replacement of original -c when creating torrent-file.
+   Comment string is converted from locale to utf-8.
+-pvt option added as replacement of original -p when creating torrent-file.
+
+	v 0.2.0 test[x]
+
+Enhanced CTorrent dnh3.3 port.
+
+	v 0.1.0
+
+-time option added.
+Time left added to the style 3.
+
+	v 0.0.8 test
+
+Still for testing.
+-file option bugfix (again).
+Partial download 'P:x/y' (chunks of current file(s)) and time left (style 2 only)
+   corrected (when selective download used).
+
+	v 0.0.7 test
+
+Still for testing.
+-file option bugfix.
+
+	v 0.0.6 test
+
+Still for testing.
+"Download specific files" user menu item is available (even if started with -file
+   option). Blocking if total files in *.torrent are equal to 1 (nothing to select).
+-d option available (detach at start).
+
+	v 0.0.5 test
+
+Still for testing.
+"User Menu" and "Operator Menu" added.
+"Download specific files" user menu item disabled (at present) if started with -file option.
+"Become daemon (fork to background)" operator menu item and -d option still disabled.
+
+	v 0.0.4 test
+
+First Enhanced CTorrent dnh3.2 port.
+For testing, without User Menu as yet.
+-file option added.
+New names of advanced options (case insensitive).
+Some of original bugs fixed.

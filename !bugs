@@ -1,0 +1,62 @@
+Редкий трап, проявляется на большой скорости.
+
+<[TeL_GiS]> 05-19-2008  18:51:13  SYS3175  PID 00f0  TID 0001  Slot 00b3
+<[TeL_GiS]> ACT.EXE 0002:00009065
+<[TeL_GiS]> Enhanced CTorrent dnh3.3.1 [act 0.2.3]
+
+0002:00008960  int near btContent::APieceComplete( int unsigned )
+0002:00009330* int near btContent::GetHashValue( int unsigned, char unsigned near * )
+
+
+
+<eros2> acw: записывай. 1. мелкий глюк. Если установлена строка статуса как в старом ctorrent - то процент в тесклисте не обновляется.
+<eros2> в тасклисте
+<eros2> acw: 2. упал после приостановки на паузу из меню "Pause (suspend upload/download)"
+<eros2> acw: 3. упал после апдейта трекера из меню. "Update tracker stats & get peers"
+<eros2> acw: 0.2.5  act.exe      │  200727│04.06.08│  2:43
+<acw> eros2 0002:00005cc0+ void near btContent::CacheEval()  - типа это не мое ;)
+<acw> eros2 0002:00005f43 - оно же
+<eros2> acw: SYS3178 - это деление на ноль с плавающей точкой. Кеш я отрубил, может изза этого.
+<eros2> хотя я всегда кеш отрубаю
+<acw> eros2 то есть ты кеш запретил в цторенте?
+<eros2> -C 0
+<acw> eros2 поянл
+<acw> eros2 а оно повторябельно или эпизодически?
+<eros2> acw: но я не опцией, а через меню уменьшил кеш. Наверно лучше в конфиг вписать -C 0
+<eros2> acw: я не пробовал повторять.
+
+	2) пауза
+
+07-05-2008  08:50:53  SYS3178  PID 0039  TID 0001  Slot 009b
+C:\UTILS\ACT.EXE
+c0000095
+00025ee8
+EAX=00000000  EBX=00000000  ECX=00000000  EDX=0000004c
+ESI=00076ad8  EDI=00000000  
+DS=0053  DSACC=f0f3  DSLIM=ffffffff  
+ES=0053  ESACC=f0f3  ESLIM=ffffffff  
+FS=150b  FSACC=00f3  FSLIM=00000030
+GS=0000  GSACC=****  GSLIM=********
+CS:EIP=005b:00025ee8  CSACC=f0df  CSLIM=ffffffff
+SS:ESP=0053:000b7838  SSACC=f0f3  SSLIM=ffffffff
+EBP=0000297a  FLG=00002256
+
+ACT.EXE 0002:00005ee8
+
+	3) трек
+
+07-05-2008  08:55:52  SYS3178  PID 0048  TID 0001  Slot 009b
+C:\UTILS\ACT.EXE
+c0000095
+00025f43
+EAX=00000000  EBX=00000000  ECX=00010000  EDX=0000004c
+ESI=00076ad8  EDI=00000000  
+DS=0053  DSACC=f0f3  DSLIM=ffffffff  
+ES=0053  ESACC=f0f3  ESLIM=ffffffff  
+FS=150b  FSACC=00f3  FSLIM=00000030
+GS=0000  GSACC=****  GSLIM=********
+CS:EIP=005b:00025f43  CSACC=f0df  CSLIM=ffffffff
+SS:ESP=0053:000b7838  SSACC=f0f3  SSLIM=ffffffff
+EBP=0000000c  FLG=00002246
+
+ACT.EXE 0002:00005f43

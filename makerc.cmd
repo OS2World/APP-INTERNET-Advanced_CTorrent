@@ -1,0 +1,1 @@
+rc16 -p -x act.res act.exe
